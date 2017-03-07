@@ -3,7 +3,7 @@ body {
 }
 
 footer {
-    margin: 50px 0;
+	
     width: 100%;
 }
 .navbar-light{
@@ -14,4 +14,9 @@ footer {
 
 .navbar-light > a, {
 	color: #2bb;
+}
+
+.footer-color{
+	background-color: gray;
+	padding: 50px;
 }

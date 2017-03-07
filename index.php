@@ -1,5 +1,5 @@
 <?php
-require("sql.php");
+    require("boot.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +42,7 @@ require("sql.php");
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="">Ljud- och Ljus kontakten</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -56,6 +56,9 @@ require("sql.php");
                     <li>
                         <a href="contact2.php">Contact</a>
                     </li>
+                    <li>
+                        <a href="form.php">Posts</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -65,6 +68,18 @@ require("sql.php");
 
     <!-- Page Content -->
     <div class="container">
+                    <?php
+                    if(isset($_SESSION["user"])) {
+                    ?>
+                    <form action="index.php" method="POST">
+                        <input type="text" name="title" placeholder="Insert title here...">
+                        <input type="file" name="img"><br>
+                        <textarea rows="10" cols="50" name="messege" form="usrform" placeholder="Posts text.."></textarea><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                    <?php
+                    }
+                    ?>
 
         <div class="row">
 
@@ -93,7 +108,6 @@ foreach ($list as $row) {
                 <img class="img-responsive" src="{$row["img"]}" alt="bild">
                 <hr>
                 <p>{$row["post"]}</p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 OUT;
 }
 ?>
@@ -112,22 +126,8 @@ OUT;
 
             </div>
 
-            <!-- Blog Sidebar Widgets Column -->
+            <!-- Blog Sidebar Widgets Column --> 
             <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
 
                 <!-- Blog Categories Well -->
                 <div class="well">
@@ -179,10 +179,21 @@ OUT;
     </div><!-- /.container -->
             
         <!-- Footer -->
-        <footer>
-            <div class="row fotter-color">
+        <footer class="footer-color">
+            <div>
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Your Website 2017</p>
+                    <?php
+                    if(isset($_SESSION["user"])) {
+                    ?>
+                    <a href="index.php?a=logout">Sign out</a>
+                    <?php
+                    } else {
+                    ?>
+                    <a href="login_script.php">Admin</a>
+                    <?php    
+                    }
+                    ?>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
