@@ -10,7 +10,5 @@
 		<textarea rows="10" cols="50" name="messege" form="usrform" placeholder="Posts text.."></textarea><br>
 		<input type="submit" value="Submit">
 	</form>
-
-	
 </body>
 </html>

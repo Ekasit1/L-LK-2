@@ -186,7 +186,7 @@ OUT;
                     <?php
                     if(isset($_SESSION["user"])) {
                     ?>
-                    <a href="index.php?a=logout">Sign out</a>
+                    <a href="login_script.php?a=logout">Sign out</a>
                     <?php
                     } else {
                     ?>
