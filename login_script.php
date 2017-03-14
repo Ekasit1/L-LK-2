@@ -19,14 +19,7 @@ require("boot.php");
 			header("Location: index.php");
 		}
 	}
-	if (isset($_SESSION["user"])) { // isset; Kolla om variablen finns. _ ; en databas variable som redan finns. SESSION; via kan nu anväda SESSION_start.
-		if(isset($_POST["title"])) {
-			$sql = new sql();
-			$ok = $sql->set("INSERT INTO posts (title, post) VALUES (\"".$_POST["title"]."\", \"".$_POST["txt"]."\");");
-			print_r($ok);
-		}
-	
-	} else {
+	if (!isset($_SESSION["user"])) { // isset; Kolla om variablen finns. _ ; en databas variable som redan finns. SESSION; via kan nu anväda SESSION_start.
 ?>
  <form action="login_script.php" method="POST"> <!-- Formulär för inlogning -->
 	<input type="text" name="username" placeholder="Username">

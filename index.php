@@ -71,10 +71,10 @@
                     <?php
                     if(isset($_SESSION["user"])) {
                     ?>
-                    <form action="index.php" method="POST">
+                    <form action="fileupload.php" method="POST" enctype="multipart/form-data">
                         <input type="text" name="title" placeholder="Insert title here...">
-                        <input type="file" name="img"><br>
-                        <textarea rows="10" cols="50" name="messege" form="usrform" placeholder="Posts text.."></textarea><br>
+                        <input type="file" name="fileToUpload" id="fileToUpload"><br>
+                        <textarea rows="10" cols="50" name="message" placeholder="Posts text.."></textarea><br>
                         <input type="submit" value="Submit">
                     </form>
                     <?php
@@ -93,7 +93,7 @@
 
 <?php
 $sql = new sql();
-$list = $sql->get("SELECT * FROM posts");
+$list = $sql->get("SELECT * FROM posts ORDER BY datum DESC");
 foreach ($list as $row) {
     $date = date("y-m-d H:i", strtotime($row["datum"]));
     echo <<<OUT
