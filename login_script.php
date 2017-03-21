@@ -1,3 +1,4 @@
+<!-- Login system -->
 <?php 
 require("boot.php");
 	if (isset($_POST["username"])) { // Kollar om username finns.
@@ -21,6 +22,7 @@ require("boot.php");
 	}
 	if (!isset($_SESSION["user"])) { // isset; Kolla om variablen finns. _ ; en databas variable som redan finns. SESSION; via kan nu anväda SESSION_start.
 ?>
+<!-- Login form -->
  <form action="login_script.php" method="POST"> <!-- Formulär för inlogning -->
 	<input type="text" name="username" placeholder="Username">
 	<input type="password" name="password" placeholder="Password">

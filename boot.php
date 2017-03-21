@@ -1,3 +1,4 @@
+<!-- !?! -->
 <?php
     session_name("Blog");
     session_start();

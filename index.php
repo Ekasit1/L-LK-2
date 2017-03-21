@@ -51,10 +51,10 @@
                         <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="profile.php">Welcome</a>
+                        <a href="#">Welcome</a>
                     </li>
                     <li>
-                        <a href="contact2.php">Contact</a>
+                        <a href="#">Contact</a>
                     </li>
                     <li>
                         <a href="form.php">Posts</a>
@@ -66,31 +66,41 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Page Content -->
+
+    <!-- Upload Form in a Modal -->
     <div class="container">
-                    <?php
-                    if(isset($_SESSION["user"])) {
+      <?php
+        if(isset($_SESSION["user"])) {
                     ?>
+                    <!-- Button that open upp a modal with the Upload-Form -->
+                    <button type="button" onclick="document.getElementById('m1').style.display = 'block'">Click</button>
+                    <!-- Modal -->
+                    <div class="modal" id="m1">
+                    <!-- Modal-content -->
                     <form action="fileupload.php" method="POST" enctype="multipart/form-data">
-                        <input type="text" name="title" placeholder="Insert title here...">
+
+                         <input type="text" name="title" placeholder="Insert title here...">
+                        <!-- Close Modal button -->
+                         <button type="button" id="close" onclick="document.getElementById('m1').style.display = 'none'">&times;</button>
+
                         <input type="file" name="fileToUpload" id="fileToUpload"><br>
                         <textarea rows="10" cols="50" name="message" placeholder="Posts text.."></textarea><br>
                         <input type="submit" value="Submit">
                     </form>
+                 </div>
+
                     <?php
                     }
                     ?>
 
         <div class="row">
-
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
                 <h1 class="page-header">
                     Page Heading
                     <small>Secondary Text</small>
                 </h1>
-
+                <!-- Blogg post system -->
 <?php
 $sql = new sql();
 $list = $sql->get("SELECT * FROM posts ORDER BY datum DESC");
@@ -98,10 +108,10 @@ foreach ($list as $row) {
     $date = date("y-m-d H:i", strtotime($row["datum"]));
     echo <<<OUT
                 <h2>
-                    <a href="#">{$row["title"]}</a>
+                    {$row["title"]}
                 </h2>
                 <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
+                    by Start Bootstrap
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted {$date}</p>
                 <hr>
@@ -114,7 +124,7 @@ OUT;
                 <!-- First Blog Post -->
                 <hr>
 
-                <!-- Pager -->
+                <!-- Page changer -->
                 <ul class="pager">
                     <li class="previous">
                         <a href="#">&larr; Older</a>
@@ -183,6 +193,7 @@ OUT;
             <div>
                 <div class="col-lg-12">
                     <p>Copyright &copy; Your Website 2017</p>
+                    <!-- Login and logout link -->
                     <?php
                     if(isset($_SESSION["user"])) {
                     ?>
@@ -207,7 +218,8 @@ OUT;
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
+    <!-- AJAX jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </body>
 
 </html>
