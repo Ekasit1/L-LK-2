@@ -19,6 +19,7 @@
 
     <!-- Custom CSS -->
     <link href="css/blog-home.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,6 +31,28 @@
 </head>
 
 <body>
+
+<?php
+if(isset($_GET["msg"])) {
+    $msglist = [
+        "Otillåten filtyp. filen måste vara JPG, JPEG, PNG eller GIF",
+        "",
+        ""
+    ]
+?>
+    <div class="modal" id="m2">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'">&times;</button>
+                <h3 class="modal-title"><?php 
+                echo $msglist[$_GET["msg"]];
+                 ?></h3>
+            </div>
+        </div>    
+    </div>
+<?php
+}
+?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-light navbar-fixed-top" role="navigation">
@@ -57,7 +80,7 @@
                         <a href="#">Contact</a>
                     </li>
                     <li>
-                        <a href="form.php">Posts</a>
+                        <a href="#">Posts</a>
                     </li>
                 </ul>
             </div>
@@ -75,18 +98,46 @@
                     <!-- Button that open upp a modal with the Upload-Form -->
                     <button type="button" onclick="document.getElementById('m1').style.display = 'block'">Click</button>
                     <!-- Modal -->
-                    <div class="modal" id="m1">
+                    <div class="modal " id="m1" role="dialog">
                     <!-- Modal-content -->
-                    <form action="fileupload.php" method="POST" enctype="multipart/form-data">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                    <!-- Close Modal button -->
+                                    <div class="modal-header">
+                                        <button type="button" class="close" onclick="document.getElementById('m1').style.display = 'none'">&times;</button>
+                                        <h3 class="modal-title">Nytt inlägg</h3>
+                                    </div>
+                                    <div class="modal-body"> 
 
-                         <input type="text" name="title" placeholder="Insert title here...">
-                        <!-- Close Modal button -->
-                         <button type="button" id="close" onclick="document.getElementById('m1').style.display = 'none'">&times;</button>
-
-                        <input type="file" name="fileToUpload" id="fileToUpload"><br>
-                        <textarea rows="10" cols="50" name="message" placeholder="Posts text.."></textarea><br>
-                        <input type="submit" value="Submit">
-                    </form>
+                                <form action="fileupload.php" method="POST" enctype="multipart/form-data" onsubmit="blogpost();">
+                                <fieldset>
+                                        <label>
+                                        <?php
+                                        if(isset($_SESSION["fileuploaddata"])) {
+                                            $title = $_SESSION["fileuploaddata"]["title"];
+                                            $message = $_SESSION["fileuploaddata"]["message"];
+                                        } else {
+                                            $title = "";
+                                            $message = "";
+                                        }
+                                        unset($_SESSION["fileuploaddata"]);
+                                        ?>
+                                            <input class="modal-inputs" type="text" name="title" placeholder="Insert title here..." value="<?php echo $title; ?>">
+                                        </lable>
+                                        <label>
+                                            <textarea class="modal-inputs" rows="10" cols="50" name="message" placeholder="Posts text.."><?php echo $message; ?></textarea>
+                                        </label>
+                                        <div>
+                                            <input class="modal-inputs" type="file" name="fileToUpload" id="fileToUpload">
+                                        </div>
+                                        <div>
+                                        <input type="submit" value="Lägg upp">
+                                        </div>
+                                </fieldset>        
+                                </form>
+                                    </div>
+                            </div>
+                        </div><!--/modal-dialog-->
                  </div>
 
                     <?php
@@ -220,6 +271,8 @@ OUT;
     <script src="js/bootstrap.min.js"></script>
     <!-- AJAX jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Form.js -->
+    <script src="js/forms.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,8 @@
 <?php
+session_name("Blog");
+session_start();
 if(isset($_FILES["fileToUpload"])) {
+    $_SESSION["fileuploaddata"] = $_POST;
     $target_dir = "uploads/";
     $filename = date("YMdHis");
     $target_file = $target_dir . $filename;
@@ -12,7 +15,8 @@ if(isset($_FILES["fileToUpload"])) {
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-            echo "File is not an image.";
+            header("Location: index.php?msg=0");
+
             $uploadOk = 0;
         }
     }
@@ -29,7 +33,7 @@ if(isset($_FILES["fileToUpload"])) {
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        header("Location: index.php?msg=0");
         $uploadOk = 0;
     }
     // Check if $uploadOk is set to 0 by an error
@@ -42,10 +46,11 @@ if(isset($_FILES["fileToUpload"])) {
             require("sql.php");
             $sql = new sql();
             $ok = $sql->set("INSERT INTO posts (title, post, img) VALUES (\"".$_POST["title"]."\", \"".$_POST["message"]."\", \"".$target_dir.$filename."\");");
+            unset($_SESSION["fileuploaddata"]);
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
     }
 }
-header("Location: index.php");
+header("Location: index.php?msg=0");
 ?>

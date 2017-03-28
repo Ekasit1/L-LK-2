@@ -1,0 +1,15 @@
+/* Form css */
+
+.modal input[type="text"], .modal textarea {
+	padding: 10px 14px 12px;
+	margin-bottom: 10px;
+	background-color: #f3f4ea;
+	color: #978e83;
+	font: 14px Arial;
+	border: none;
+	outline: none;
+}
+
+#m2 {
+	display: block;
+}
