@@ -32,6 +32,16 @@
 </head>
 
 <body>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <?php
 if(isset($_GET["msg"])) {
@@ -71,18 +81,6 @@ if(isset($_GET["msg"])) {
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Welcome</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                    <li>
-                        <a href="#">Posts</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -236,6 +234,16 @@ OUT;
                               <input type="email" name="email" placeholder="Email address" autofocus>
                               <button type="submit">Subscribe</button>
                             </form>
+                        </section>
+                </div>
+                <div class="well">
+                    <section>
+                            <div>
+                              <h3>Följ oss på Sociala medier</h3>
+                            </div>
+                            <div class="fb-follow" data-href="https://www.facebook.com/LjudLjusKontakten" data-width="10px" data-layout="standard" data-size="small" data-show-faces="true">      
+                            </div>
+                            <div class="g-follow" data-href="https://plus.google.com/u/0/113858997105593337196" data-rel="{relationshipType}"></div>
                         </section>
                 </div>
 
