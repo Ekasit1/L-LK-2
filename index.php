@@ -20,6 +20,7 @@
     <!-- Custom CSS -->
     <link href="css/blog-home.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
+    <link href="css/newsletter.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -96,7 +97,7 @@ if(isset($_GET["msg"])) {
         if(isset($_SESSION["user"])) {
                     ?>
                     <!-- Button that open upp a modal with the Upload-Form -->
-                    <button type="button" onclick="document.getElementById('m1').style.display = 'block'">Click</button>
+                    <button type="button" onclick="document.getElementById('m1').style.display = 'block'">Lägg upp inlägg!</button>
                     <!-- Modal -->
                     <div class="modal " id="m1" role="dialog">
                     <!-- Modal-content -->
@@ -148,8 +149,7 @@ if(isset($_GET["msg"])) {
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
+                    Posts
                 </h1>
                 <!-- Blogg post system -->
 <?php
@@ -220,14 +220,23 @@ OUT;
                             </ul>
                         </div>
                         <!-- /.col-lg-6 -->
+                        
                     </div>
                     <!-- /.row -->
                 </div>
 
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <section>
+                            <div>
+                              <h3>Subscribe</h3>
+                              <p>Subscribe to our newsletter to get the latest scoop right to your inbox.<p>
+                            </div>
+                            <form action="index.html" method="post">
+                              <input type="email" name="email" placeholder="Email address" autofocus>
+                              <button type="submit">Subscribe</button>
+                            </form>
+                        </section>
                 </div>
 
             </div>
