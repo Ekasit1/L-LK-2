@@ -6,16 +6,50 @@ footer {
 	
     width: 100%;
 }
+/*Editing body CSS*/
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #f0f0f0;
+    background-color: #292727;
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #151414;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
 /* Navbar CSS */
 .navbar-light{
-	background-color: #000140;
-    border-color: #080808;
-    color: #000;
+	background-color: #3c3939;
+    border: 0px solid;
+    color: #f0f0f0;
 }
 
 .navbar-light > a, {
-	color: #2bb;
+	color: #f0f0f0;
 }
+/* Fonts */
+a {
+    color: #eaeaea;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: transparent;
+    color: #ccc;
+}
+
+#facebook{
+	color:#fff;
+}
+
 /* Footer CSS */
 .footer-color{
 	background-color: gray;
@@ -43,4 +77,23 @@ footer {
 
 	position: absolute;
 	right: 31.7%;
+}
+
+/* Button*/
+
+button, input, select, textarea {
+    font-size: inherit;
+    line-height: inherit;
+    box-shadow: none;
+    background: #00679a;
+    border: 1px solid #66cdff;
+    border-radius: 5px;
+}
+
+.pager li>a, .pager li>span {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #00679a;
+    border: 1px solid #66cdff;
+    border-radius: 15px;
 }
