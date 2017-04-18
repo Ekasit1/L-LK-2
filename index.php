@@ -46,15 +46,20 @@
 <?php
 if(isset($_GET["msg"])) {
     $msglist = [
+        "Det funkade",
         "Otillåten filtyp. filen måste vara JPG, JPEG, PNG eller GIF",
-        "",
-        ""
-    ]
+        "file is to big",
+        "Error"
+    ];
+    $onclickcode = "document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'";
+    if($_GET["msg"] < 1) {
+        $onclickcode = "document.getElementById('m2').style.display = 'none';";
+    }
 ?>
     <div class="modal" id="m2">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" onclick="document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'">&times;</button>
+                <button type="button" class="close" onclick="<?php echo $onclickcode; ?>">&times;</button>
                 <h3 class="modal-title"><?php 
                 echo $msglist[$_GET["msg"]];
                  ?></h3>
