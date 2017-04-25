@@ -81,22 +81,35 @@ a:hover {
 	right: 31.7%;
 }
 
+.modalcolor {
+  background: #3c3939;
+  color: white;
+}
+
 /* Button*/
 
-button, input, select, textarea {
+.inputs2 {
+  background: #00679a;
+  border: 0.5px solid #529ec3;
+  border-radius: 15px;
+  box-shadow: 1px 2px 1px #00379a;
+}
+
+button, select {
     font-size: inherit;
     line-height: inherit;
     box-shadow: none;
     background: #00679a;
-    border: 1px solid #66cdff;
-    border-radius: 5px;
+    border: 0.5px solid #529ec3;
+    border-radius: 15px;
+    box-shadow: 1px 2px 1px #00379a;
 }
 
 .pager li>a, .pager li>span {
     display: inline-block;
     padding: 5px 14px;
     background-color: #00679a;
-    border: 0px solid #66cdff;
+    border: 0.5px solid #529ec3;
     border-radius: 15px;
     box-shadow: 1px 2px 1px #00379a;
 }

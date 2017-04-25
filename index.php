@@ -49,7 +49,7 @@ if(isset($_GET["msg"])) {
 ?>
     <div class="modal" id="m2">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header modalcolor">
                 <button type="button" class="close" onclick="<?php echo $onclickcode; ?>">&times;</button>
                 <h3 class="modal-title"><?php
                 echo $msglist[$_GET["msg"]];
@@ -93,7 +93,7 @@ if(isset($_GET["msg"])) {
                     <div class="modal " id="m1" role="dialog">
                     <!-- Modal-content -->
                         <div class="modal-dialog">
-                            <div class="modal-content">
+                            <div class="modal-content modalcolor">
                                     <!-- Close Modal button -->
                                     <div class="modal-header">
                                         <button type="button" class="close" onclick="document.getElementById('m1').style.display = 'none'">&times;</button>
@@ -123,7 +123,7 @@ if(isset($_GET["msg"])) {
                                             <input class="modal-inputs" type="file" name="fileToUpload" id="fileToUpload">
                                         </div>
                                         <div>
-                                        <input type="submit" value="Lägg upp">
+                                        <input class="inputs2" type="submit" value="Lägg upp">
                                         </div>
                                 </fieldset>
                                 </form>
