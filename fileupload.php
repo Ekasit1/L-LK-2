@@ -2,7 +2,7 @@
 session_name("Blog");
 session_start();
 if(isset($_POST["title"])) {
-    if(isset($_FILES["fileToUpload"])) {       
+    if($_FILES["fileToUpload"]["name"] != "") {       
         $_SESSION["fileuploaddata"] = $_POST;
         $target_dir = "uploads/";
         $filename = date("YMdHis");

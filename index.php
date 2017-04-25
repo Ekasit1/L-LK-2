@@ -120,7 +120,7 @@ if(isset($_GET["msg"])) {
                                             <textarea class="modal-inputs" rows="10" cols="50" name="message" placeholder="Posts text.."><?php echo $message; ?></textarea>
                                         </label>
                                         <div>
-                                            <input class="modal-inputs" type="file" name="fileToUpload" id="fileToUpload">
+                                            <input type="file" name="fileToUpload" id="fileToUpload">
                                         </div>
                                         <div>
                                         <input class="inputs2" type="submit" value="Lägg upp">
@@ -154,7 +154,13 @@ foreach ($list as $row) {
                     av Mattias Andersson
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Postad {$date}</p>
-                <img class="img-responsive" src="{$row["img"]}" alt="bild">
+OUT;
+    if($row["img"] != "") {
+        echo <<<OUT
+<img class="img-responsive" src="{$row["img"]}" alt="bild">
+OUT;
+    }
+    echo <<<OUT
                 <br>
                 <p>{$row["post"]}</p>
                 <hr>
