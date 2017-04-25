@@ -3,34 +3,26 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Blog Home - Start Bootstrap Template</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="css/blog-home.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
     <link href="css/newsletter.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
@@ -42,7 +34,6 @@
   js.src = "//connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.8";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
 <?php
 if(isset($_GET["msg"])) {
     $msglist = [
@@ -60,16 +51,15 @@ if(isset($_GET["msg"])) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" onclick="<?php echo $onclickcode; ?>">&times;</button>
-                <h3 class="modal-title"><?php 
+                <h3 class="modal-title"><?php
                 echo $msglist[$_GET["msg"]];
                  ?></h3>
             </div>
-        </div>    
+        </div>
     </div>
 <?php
 }
 ?>
-
     <!-- Navigation -->
     <nav class="navbar navbar-light navbar-fixed-top" role="navigation">
         <div class="container">
@@ -81,7 +71,7 @@ if(isset($_GET["msg"])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Ljud- och Ljus kontakten</a>
+                <a class="navbar-brand theLogo" href="#">Ljud- och Ljus Kontakten</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -92,8 +82,6 @@ if(isset($_GET["msg"])) {
         </div>
         <!-- /.container -->
     </nav>
-
-
     <!-- Upload Form in a Modal -->
     <div class="container">
       <?php
@@ -111,8 +99,8 @@ if(isset($_GET["msg"])) {
                                         <button type="button" class="close" onclick="document.getElementById('m1').style.display = 'none'">&times;</button>
                                         <h3 class="modal-title">Nytt inlägg</h3>
                                     </div>
-                                    <div class="modal-body"> 
-
+                                    <div class="modal-body">
+                                      <!-- Fileupload button -->
                                 <form action="fileupload.php" method="POST" enctype="multipart/form-data" onsubmit="blogpost();">
                                 <fieldset>
                                         <label>
@@ -137,22 +125,20 @@ if(isset($_GET["msg"])) {
                                         <div>
                                         <input type="submit" value="Lägg upp">
                                         </div>
-                                </fieldset>        
+                                </fieldset>
                                 </form>
                                     </div>
                             </div>
                         </div><!--/modal-dialog-->
                  </div>
-
                     <?php
                     }
                     ?>
-
         <div class="row">
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <h1 class="page-header">
-                    Posts
+                    Inlägg
                 </h1>
                 <!-- Blogg post system -->
 <?php
@@ -164,20 +150,19 @@ foreach ($list as $row) {
                 <h2>
                     {$row["title"]}
                 </h2>
-                <p class="lead">
-                    by Start Bootstrap
+                <p class="lead2">
+                    av Mattias Andersson
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted {$date}</p>
-                <hr>
+                <p><span class="glyphicon glyphicon-time"></span> Postad {$date}</p>
                 <img class="img-responsive" src="{$row["img"]}" alt="bild">
-                <hr>
+                <br>
                 <p>{$row["post"]}</p>
+                <hr>
 OUT;
 }
 ?>
                 <!-- First Blog Post -->
                 <hr>
-
                 <!-- Page changer -->
                 <ul class="pager">
                     <li class="previous">
@@ -187,12 +172,9 @@ OUT;
                         <a href="#">Newer &rarr;</a>
                     </li>
                 </ul>
-
             </div>
-
-            <!-- Blog Sidebar Widgets Column --> 
+            <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
-
                 <!-- Blog Categories Well -->
                 <div class="well">
                     <h4>Blog Categories</h4>
@@ -223,11 +205,9 @@ OUT;
                             </ul>
                         </div>
                         <!-- /.col-lg-6 -->
-                        
                     </div>
                     <!-- /.row -->
                 </div>
-
                 <!-- Side Widget Well -->
                 <div class="well">
                     <section>
@@ -239,28 +219,23 @@ OUT;
                               <input type="email" name="email" placeholder="Email address" autofocus>
                               <button type="submit">Subscribe</button>
                             </form>
-                        </section>
+                    </section>
                 </div>
                 <div class="well">
                     <section>
                             <div>
                               <h3>Följ oss på Sociala medier</h3>
                             </div>
-                            <div class="fb-follow" data-href="https://www.facebook.com/LjudLjusKontakten" data-width="10px" data-layout="standard" data-size="small" data-show-faces="true">      
+                            <div class="fb-follow" data-href="https://www.facebook.com/LjudLjusKontakten" data-width="10px" data-layout="standard" data-size="small" data-show-faces="true">
                             </div>
                             <div class="g-follow" data-href="https://plus.google.com/u/0/113858997105593337196" data-rel="{relationshipType}"></div>
-                        </section>
+                    </section>
                 </div>
-
             </div>
-
         </div>
         <!-- /.row -->
-
         <hr>
-
     </div><!-- /.container -->
-            
         <!-- Footer -->
         <footer class="footer-color">
             <div>
@@ -275,7 +250,7 @@ OUT;
                     } else {
                     ?>
                     <a href="login_script.php">Admin</a>
-                    <?php    
+                    <?php
                     }
                     ?>
                 </div>
@@ -283,12 +258,8 @@ OUT;
             </div>
             <!-- /.row -->
         </footer>
-
-    
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <!-- AJAX jQuery -->
@@ -296,5 +267,4 @@ OUT;
     <!-- Form.js -->
     <script src="js/forms.js"></script>
 </body>
-
 </html>
