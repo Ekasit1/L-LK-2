@@ -174,16 +174,16 @@ OUT;
 ?>
                 <!-- Page changer -->
 
-                <button tupe="button" class="readMore"><a herf="#"><span class="glyphicon glyphicon-chevron-down randomAlign"></span></a></button>
-
-              <!--<ul class="pager">
+                <!--<button type="button" class="readMore"><a herf="#"><span class="glyphicon glyphicon-chevron-down randomAlign"></span></a></button>
+-->
+              <ul class="pager">
                     <li class="previous">
                         <a href="#">&larr; Older</a>
                     </li>
                     <li class="next">
                         <a href="#">Newer &rarr;</a>
                     </li>
-                </ul>-->
+                </ul>
             </div>
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
