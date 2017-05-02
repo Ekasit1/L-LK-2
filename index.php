@@ -38,12 +38,13 @@
 if(isset($_GET["msg"])) {
     $msglist = [
         "Det funkade",
+        "Du är subscribad",
         "Otillåten filtyp. filen måste vara JPG, JPEG, PNG eller GIF",
         "file is to big",
         "Error"
     ];
     $onclickcode = "document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'";
-    if($_GET["msg"] < 1) {
+    if($_GET["msg"] < 2) {
         $onclickcode = "document.getElementById('m2').style.display = 'none';";
     }
 ?>
@@ -221,7 +222,7 @@ OUT;
                               <h3>Subscribe</h3>
                               <p>Subscribe to our newsletter to get the latest scoop right to your inbox.<p>
                             </div>
-                            <form action="index.html" method="post">
+                            <form action="mail.php" method="POST">
                               <input type="email" name="email" placeholder="Email address" autofocus>
                               <button type="submit">Subscribe</button>
                             </form>
