@@ -143,8 +143,12 @@ if(isset($_GET["msg"])) {
                 </h1>
                 <!-- Blogg post system -->
 <?php
+$page = 0;
+if(isset($_GET["page"])) {
+    $page = $_GET["page"]-1;
+}
 $sql = new sql();
-$list = $sql->get("SELECT * FROM posts ORDER BY datum DESC");
+$list = $sql->get("SELECT * FROM posts ORDER BY datum DESC LIMIT ".($page*5).",5");
 foreach ($list as $row) {
     $date = date("y-m-d H:i", strtotime($row["datum"]));
     echo <<<OUT
