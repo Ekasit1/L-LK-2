@@ -223,7 +223,7 @@ OUT;
                               <p>Subscribe to our newsletter to get the latest scoop right to your inbox.<p>
                             </div>
                             <form action="mail.php" method="POST">
-                              <input type="email" name="email" placeholder="Email address" autofocus>
+                              <input type="email" name="email" placeholder="Email address">
                               <button type="submit">Subscribe</button>
                             </form>
                     </section>
