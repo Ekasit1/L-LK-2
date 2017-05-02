@@ -54,7 +54,7 @@ a:hover {
 
 /* Footer CSS */
 .footer-color{
-	background-color: gray;
+	background-color: #524b4b; /* #080808 */
 	padding: 50px;
 }
 
@@ -93,6 +93,11 @@ a:hover {
   border: 0.5px solid #529ec3;
   border-radius: 15px;
   box-shadow: 1px 2px 1px #00379a;
+  color: white;
+}
+
+.inputs3 {
+  color: black;
 }
 
 button, select {
@@ -120,4 +125,25 @@ button, select {
 
 textarea {
     color: black;
+}
+
+.randomAlign {
+  vertical-align: middle;
+
+}
+
+.readMore {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin-bottom: 15px;
+      align-content: center;
+      width: 45px;
+      height: 45px;
+      display: inline-block;
+      padding: 5px 14px;
+      background-color: #00679a;
+      border: 0.5px solid #529ec3;
+      border-radius: 50%;
+      /*box-shadow: 1px 2px 1px #00379a;*/
 }

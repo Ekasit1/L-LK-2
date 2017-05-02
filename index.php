@@ -168,17 +168,18 @@ OUT;
 OUT;
 }
 ?>
-                <!-- First Blog Post -->
-                <hr>
                 <!-- Page changer -->
-                <ul class="pager">
+
+                <button tupe="button" class="readMore"><span class="glyphicon glyphicon-chevron-down randomAlign"></span></button>
+
+              <!--<ul class="pager">
                     <li class="previous">
                         <a href="#">&larr; Older</a>
                     </li>
                     <li class="next">
                         <a href="#">Newer &rarr;</a>
                     </li>
-                </ul>
+                </ul>-->
             </div>
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
@@ -223,7 +224,7 @@ OUT;
                               <p>Subscribe to our newsletter to get the latest scoop right to your inbox.<p>
                             </div>
                             <form action="mail.php" method="POST">
-                              <input type="email" name="email" placeholder="Email address">
+                              <input class="inputs3" type="email" name="email" placeholder="Email address">
                               <button type="submit">Subscribe</button>
                             </form>
                     </section>
@@ -241,7 +242,6 @@ OUT;
             </div>
         </div>
         <!-- /.row -->
-        <hr>
     </div><!-- /.container -->
         <!-- Footer -->
         <footer class="footer-color">
