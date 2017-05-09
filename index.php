@@ -239,7 +239,6 @@ OUT;
                               <h3>Följ oss på Sociala medier</h3>
                             </div>
                             <div class="fb-follow" data-href="https://www.facebook.com/LjudLjusKontakten" data-layout="button_count" data-size="small" data-show-faces="true"></div>
-                            </div>
                             <div class="g-follow" data-href="https://plus.google.com/u/0/113858997105593337196" data-rel="{relationshipType}"></div>
                     </section>
                 </div>
