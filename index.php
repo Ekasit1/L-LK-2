@@ -243,15 +243,25 @@ OUT;
                             <div class="g-follow" data-href="https://plus.google.com/u/0/113858997105593337196" data-rel="{relationshipType}"></div>
                     </section>
                 </div>
+<?php
+if(isset($_SESSION["user"])) {
+$sql = new sql();
+$list = $sql->get("SELECT email FROM maillista");
+?>
                 <div class="well">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                  pariatur. Excepteur sint occaecat cupidatat non proident,
-                   sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <input type="button" onclick="document.getElementById('maillista').style.display = 'block';" value="Visa maillista">
+                <div id="maillista" style="display: none;">
+<?php
+                 foreach ($list as $row) {
+                    echo $row["email"];
+}
+?>
                 </div>
+                </div>
+
+<?php
+}
+?>
             </div>
         </div>
         <!-- /.row -->
