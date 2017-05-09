@@ -91,7 +91,7 @@ a:hover {
 .inputs2 {
   background: #00679a;
   border: 0.5px solid #529ec3;
-  box-shadow: 1px 2px 1px #00379a;
+  /*box-shadow: 1px 2px 1px #00379a;*/
   color: white;
 }
 
@@ -102,10 +102,10 @@ a:hover {
 button, select {
     font-size: inherit;
     line-height: inherit;
-    box-shadow: none;
+    /*box-shadow: none;*/ 
     background: #00679a;
     border: 0.5px solid #529ec3;
-    box-shadow: 1px 2px 1px #00379a;
+    /*box-shadow: 1px 2px 1px #00379a;*/
 }
 
 .pager li>a, .pager li>span {
@@ -113,7 +113,7 @@ button, select {
     padding: 5px 14px;
     background-color: #00679a;
     border: 0.5px solid #529ec3;
-    box-shadow: 1px 2px 1px #00379a;
+    /*box-shadow: 1px 2px 1px #00379a;*/
     border-radius: 0px;
 }
 
@@ -157,7 +157,7 @@ textarea {
       display: inline-block;
       padding: 5px 14px;
       background-color: #023f5d;
-      border: 0.5px solid #3b7794;<
+      border: 0.5px solid #3b7794;
       border-radius: 50%;
       /*box-shadow: 1px 2px 1px #00379a;*/
 }

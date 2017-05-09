@@ -31,7 +31,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.8";
+  js.src = "//connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.9";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php
@@ -238,7 +238,7 @@ OUT;
                             <div>
                               <h3>Följ oss på Sociala medier</h3>
                             </div>
-                            <div class="fb-follow" data-href="https://www.facebook.com/LjudLjusKontakten" data-width="10px" data-layout="standard" data-size="small" data-show-faces="true">
+                            <div class="fb-follow" data-href="https://www.facebook.com/LjudLjusKontakten" data-layout="button_count" data-size="small" data-show-faces="true"></div>
                             </div>
                             <div class="g-follow" data-href="https://plus.google.com/u/0/113858997105593337196" data-rel="{relationshipType}"></div>
                     </section>
@@ -249,7 +249,7 @@ $sql = new sql();
 $list = $sql->get("SELECT email FROM maillista");
 ?>
                 <div class="well">
-                <input type="button" onclick="document.getElementById('maillista').style.display = 'block';" value="Visa maillista">
+                <input class="inputs2" type="button" onclick="document.getElementById('maillista').style.display = 'block';" value="Visa maillista">
                 <div id="maillista" style="display: none;">
 <?php
                  foreach ($list as $row) {
