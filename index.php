@@ -168,10 +168,19 @@ OUT;
     echo <<<OUT
                 <br>
                 <p>{$row["post"]}</p>
-                <hr>
+
 OUT;
+    if (isset($_SESSION["user"])) {
+        echo <<<OUT
+                <a href="delete.php?id={$row["id"]}"><button type="button">Ta bort inlägg</button></a>
+
+OUT;
+    }
+    echo "<hr>";
 }
 ?>
+
+
                 <!-- Page changer -->
 
                 <!--<button type="button" class="readMore"><a herf="#"><span class="glyphicon glyphicon-chevron-down randomAlign"></span></a></button>

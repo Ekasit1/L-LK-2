@@ -1,6 +1,4 @@
 <?php  
-session_name("blog");
-session_start();
 if(isset($_POST["email"])) {
 	require("sql.php");
     $sql = new sql();
