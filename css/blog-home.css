@@ -90,7 +90,7 @@ a:hover {
 
 .inputs2 {
   background: #00679a;
-  border: 0.5px solid #529ec3;
+  border: 0px solid #529ec3;
   /*box-shadow: 1px 2px 1px #00379a;*/
   color: white;
 }
@@ -104,7 +104,7 @@ button, select {
     line-height: inherit;
     /*box-shadow: none;*/ 
     background: #00679a;
-    border: 0.5px solid #529ec3;
+    border: 0px solid #529ec3;
     /*box-shadow: 1px 2px 1px #00379a;*/
 }
 
@@ -112,7 +112,7 @@ button, select {
     display: inline-block;
     padding: 5px 14px;
     background-color: #00679a;
-    border: 0.5px solid #529ec3;
+    border: 0px solid #529ec3;
     /*box-shadow: 1px 2px 1px #00379a;*/
     border-radius: 0px;
 }
