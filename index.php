@@ -52,9 +52,9 @@ if(isset($_GET["msg"])) {
         <div class="modal-content">
             <div class="modal-header modalcolor">
                 <button type="button" class="close" onclick="<?php echo $onclickcode; ?>">&times;</button>
-                <h3 class="modal-title"><?php
+                <h4 class="modal-title"><?php
                 echo $msglist[$_GET["msg"]];
-                 ?></h3>
+                 ?></h4>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@ if(isset($_GET["msg"])) {
                                     <!-- Close Modal button -->
                                     <div class="modal-header">
                                         <button type="button" class="close" onclick="document.getElementById('m1').style.display = 'none'">&times;</button>
-                                        <h3 class="modal-title">Nytt inlägg</h3>
+                                        <h4 class="modal-title">Nytt inlägg</h4>
                                     </div>
                                     <div class="modal-body">
                                       <!-- Fileupload button -->
@@ -138,9 +138,9 @@ if(isset($_GET["msg"])) {
         <div class="row">
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-                <h1 class="page-header">
+                <h2 class="page-header">
                     Inlägg
-                </h1>
+                </h2>
                 <!-- Blogg post system -->
 <?php
 $page = 0;
@@ -152,9 +152,9 @@ $list = $sql->get("SELECT * FROM posts ORDER BY datum DESC LIMIT ".($page*5).",5
 foreach ($list as $row) {
     $date = date("y-m-d H:i", strtotime($row["datum"]));
     echo <<<OUT
-                <h2>
+                <h3>
                     {$row["title"]}
-                </h2>
+                </h3>
                 <p class="lead2">
                     av Mattias Andersson
                 </p>
@@ -224,7 +224,7 @@ OUT;
                 <div class="well">
                     <section>
                             <div>
-                              <h3>Subscribe</h3>
+                              <h4>Subscribe</h4>
                               <p>Subscribe to our newsletter to get the latest scoop right to your inbox.<p>
                             </div>
                             <form action="mail.php" method="POST">
@@ -236,7 +236,7 @@ OUT;
                 <div class="well">
                     <section>
                             <div>
-                              <h3>Följ oss på Sociala medier</h3>
+                              <h4>Följ oss på Sociala medier</h4>
                             </div>
                             <div class="fb-follow" data-href="https://www.facebook.com/LjudLjusKontakten" data-layout="button_count" data-size="small" data-show-faces="true"></div>
                             <br>
