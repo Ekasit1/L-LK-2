@@ -2,10 +2,17 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+/*Footer CSS*/
 footer {
 
     width: 100%;
 }
+
+.footer-color{
+	background-color: #524b4b; /* #080808 */
+	padding: 50px;
+}
+
 /*Editing body CSS*/
 body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -15,7 +22,7 @@ body {
     background-color: #292727;
 }
 
-.well {
+.well { /*boxar för sid-artiklarna(höger sida) */
     min-height: 20px;
     padding: 19px;
     margin-bottom: 20px;
@@ -56,13 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Lucida Console", Courier, monospace;
 }
 
-/* Footer CSS */
-.footer-color{
-	background-color: #524b4b; /* #080808 */
-	padding: 50px;
-}
-
-/* MODAL CSS */
+/* Modal CSS */
 .modal {
 
 	position: fixed;
@@ -89,12 +90,11 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* Button*/
+/* Button och input CSS */
 
 .inputs2 {
   background: #00679a;
   border: 0px solid #529ec3;
-  /*box-shadow: 1px 2px 1px #00379a;*/
   color: white;
 }
 
@@ -105,10 +105,8 @@ h1, h2, h3, h4, h5, h6 {
 button, select {
     font-size: inherit;
     line-height: inherit;
-    /*box-shadow: none;*/
     background: #00679a;
     border: 0px solid #529ec3;
-    /*box-shadow: 1px 2px 1px #00379a;*/
 }
 
 .pager li>a, .pager li>span {
@@ -116,7 +114,6 @@ button, select {
     padding: 5px 14px;
     background-color: #00679a;
     border: 0px solid #529ec3;
-    /*box-shadow: 1px 2px 1px #00379a;*/
     border-radius: 0px;
 }
 
@@ -128,10 +125,13 @@ textarea {
     color: black;
 }
 
+
+/*Används inte !PLease Remove!*/
 .randomAlign {
   vertical-align: middle;
 
 }
+
 
 .readMore {
       position: relative;
