@@ -8,7 +8,7 @@ if(isset($_POST["email"])) {
 	    if($ok == false) {
 	    	header("Location: index.php?msg=4");
 	    } else {
-	    	header("Location: index.php?msg=1");
+	    	header("Location: index.php?msg=3");
 	    }
     } else {
     	header("Location: index.php?msg=4");

@@ -16,7 +16,7 @@ if(isset($_POST["title"])) {
                 echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
             } else {
-                header("Location: index.php?msg=1");
+                header("Location: index.php?msg=5");
                 break;
                 $uploadOk = 0;
             }
@@ -24,13 +24,13 @@ if(isset($_POST["title"])) {
         // Check file size
         if ($_FILES["fileToUpload"]["size"] > 500000) {
             $uploadOk = 0;
-            header("Location: index.php?msg=2");
+            header("Location: index.php?msg=6");
             break;
         }
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" ) {
-            header("Location: index.php?msg=1");
+            header("Location: index.php?msg=5");
             break;
             $uploadOk = 0;
         }
@@ -42,7 +42,7 @@ if(isset($_POST["title"])) {
             header("Location: index.php?msg=0");
             break;
         } else {
-            header("Location: index.php?msg=3");
+            header("Location: index.php?msg=6");
             break;
         }
     } else {

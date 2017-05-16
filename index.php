@@ -38,13 +38,15 @@
 if(isset($_GET["msg"])) {
     $msglist = [
         "Det funkade",
-        "Du är subscribad",
+        "Du får nu vårt nyhetsbrev",
+        "Inlägget har tagits bort",
+        "Du får inte vårt nyhetsbrev längre",
+        "Error",
         "Otillåten filtyp. filen måste vara JPG, JPEG, PNG eller GIF",
-        "file is to big",
-        "Error"
+        "file is to big"    
     ];
     $onclickcode = "document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'";
-    if($_GET["msg"] < 2) {
+    if($_GET["msg"] < 5) {
         $onclickcode = "document.getElementById('m2').style.display = 'none';";
     }
 ?>
