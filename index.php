@@ -145,12 +145,17 @@ if(isset($_GET["msg"])) {
                 </h2>
                 <!-- Blogg post system -->
 <?php
-$page = 0;
-if(isset($_GET["page"])) {
-    $page = $_GET["page"]-1;
-}
 $sql = new sql();
-$list = $sql->get("SELECT * FROM posts ORDER BY datum DESC LIMIT ".($page*5).",5");
+$page = 1;
+if(isset($_GET["page"])) {
+    $page = $_GET["page"];
+}
+$limiter = floor($page*5)-5;
+if(isset($_GET["id"])) {
+    $list = $sql->get("SELECT * FROM posts WHERE id = ".$_GET["id"]);
+} else {
+    $list = $sql->get("SELECT * FROM posts ORDER BY datum DESC LIMIT {$limiter}, 5");
+}
 foreach ($list as $row) {
     $date = date("y-m-d H:i", strtotime($row["datum"]));
     echo <<<OUT
@@ -187,13 +192,29 @@ OUT;
 
                 <!--<button type="button" class="readMore"><a herf="#"><span class="glyphicon glyphicon-chevron-down randomAlign"></span></a></button>
 -->
+
+
+
               <ul class="pager">
+<?php
+$count = $sql->get("SELECT COUNT(*) AS c FROM posts");
+$antal = $count[0]["c"]/5;
+$lastpage = ceil($antal);
+                if($page > 1) {             
+?>             
                     <li class="previous">
-                        <a href="#">&larr; Older</a>
+                        <a href="index.php?page=<?php echo $page-1; ?>">Newer &rarr;</a>
                     </li>
+<?php
+}
+                if($page < $lastpage) {                            
+?>
                     <li class="next">
-                        <a href="#">Newer &rarr;</a>
+                        <a href="index.php?page=<?php echo $page+1; ?>">&larr; Older</a>
                     </li>
+<?php
+} 
+?>
                 </ul>
             </div>
             <!-- Blog Sidebar Widgets Column -->
