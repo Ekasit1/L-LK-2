@@ -43,7 +43,7 @@ if(isset($_GET["msg"])) {
         "Du får inte vårt nyhetsbrev längre",
         "Error",
         "Otillåten filtyp. filen måste vara JPG, JPEG, PNG eller GIF",
-        "file is to big"    
+        "file is to big"
     ];
     $onclickcode = "document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'";
     if($_GET["msg"] < 5) {
@@ -200,20 +200,20 @@ OUT;
 $count = $sql->get("SELECT COUNT(*) AS c FROM posts");
 $antal = $count[0]["c"]/5;
 $lastpage = ceil($antal);
-                if($page > 1) {             
-?>             
+                if($page > 1) {
+?>
                     <li class="previous">
                         <a href="index.php?page=<?php echo $page-1; ?>">Newer &rarr;</a>
                     </li>
 <?php
 }
-                if($page < $lastpage) {                            
+                if($page < $lastpage) {
 ?>
                     <li class="next">
                         <a href="index.php?page=<?php echo $page+1; ?>">&larr; Older</a>
                     </li>
 <?php
-} 
+}
 ?>
                 </ul>
             </div>
@@ -221,32 +221,19 @@ $lastpage = ceil($antal);
             <div class="col-md-4">
                 <!-- Blog Categories Well -->
                 <div class="well">
-                    <h4>Blog Categories</h4>
+                    <h4>Om Mig</h4>
                     <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
+                        <div class="col-lg-4">
+                          <img src="me.jpg" width="120%" height="120%">
+                          <p></p>
+
                         </div>
                         <!-- /.col-lg-6 -->
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
+                        <div class="col-lg-8">
+                          <p>"Jag heter Mattias. Jag är ägaren för L&LK (Ljud och Ljus Kontakten).
+                            Jag har jobbat med ljud och ljus i 5+ år
+                            <br><br>
+                            Kontakta mig via (insert num) eller (@)"</p>
                         </div>
                         <!-- /.col-lg-6 -->
                     </div>
