@@ -20,7 +20,7 @@ require("boot.php");
 			header("Location: index.php");
 		}
 	}
-	if (!isset($_SESSION["user"])) { // isset; Kolla om variablen finns. _ ; en databas variable som redan finns. SESSION; via kan nu anväda SESSION_start.
+	if (!isset($_SESSION["user"])) { // Kollar om man inte är inloggad 
 ?>
 <!-- Login form -->
  <form action="login_script.php" method="POST"> <!-- Formulär för inlogning -->

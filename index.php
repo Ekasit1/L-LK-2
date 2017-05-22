@@ -35,7 +35,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php
-if(isset($_GET["msg"])) {
+if(isset($_GET["msg"])) { // om ett meddelande att visa så kommer det att välja ett från listan
     $msglist = [
         "Det funkade",
         "Du får nu vårt nyhetsbrev",
@@ -45,7 +45,7 @@ if(isset($_GET["msg"])) {
         "Otillåten filtyp. filen måste vara JPG, JPEG, PNG eller GIF",
         "file is to big"
     ];
-    $onclickcode = "document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'";
+    $onclickcode = "document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'"; // rad 48-50 gör så att om det kommer upp ett felmeddelande som har med inlägget att göra så tar det dig tillbaka till modal en med inlägg. Om det är en annat typ av meddelande så tar det dig inte tillbaka till modalen.
     if($_GET["msg"] < 5) {
         $onclickcode = "document.getElementById('m2').style.display = 'none';";
     }
@@ -88,9 +88,9 @@ if(isset($_GET["msg"])) {
     <!-- Upload Form in a Modal -->
     <div class="container">
       <?php
-        if(isset($_SESSION["user"])) {
+        if(isset($_SESSION["user"])) { // gör så att man kan lägga upp inlägg när man är inloggad 
                     ?>
-                    <!-- Button that open upp a modal with the Upload-Form -->
+                    <!-- Button that open up a modal with the Upload-Form -->
                     <button type="button" onclick="document.getElementById('m1').style.display = 'block'">Lägg upp inlägg!</button>
                     <!-- Modal -->
                     <div class="modal " id="m1" role="dialog">
@@ -108,7 +108,7 @@ if(isset($_GET["msg"])) {
                                 <fieldset>
                                         <label>
                                         <?php
-                                        if(isset($_SESSION["fileuploaddata"])) {
+                                        if(isset($_SESSION["fileuploaddata"])) { // gör så att om det kommer ett felmeddelande så sparas vad du skrivit i din titel och textruta så att du inte behöver skriva om det och efter att det funkat att lägga upp så försvinner det som sparades innan.
                                             $title = $_SESSION["fileuploaddata"]["title"];
                                             $message = $_SESSION["fileuploaddata"]["message"];
                                         } else {
@@ -145,19 +145,15 @@ if(isset($_GET["msg"])) {
                 </h2>
                 <!-- Blogg post system -->
 <?php
-$sql = new sql();
+$sql = new sql(); // skapar ett nytt objekt som gör att vi kan använda sql
 $page = 1;
-if(isset($_GET["page"])) {
+if(isset($_GET["page"])) { // rad 149 -153 gör så att vi hämtar rätt data från databasen och att vad som visas och hämtas förändras beroende på vilken sida vi är på
     $page = $_GET["page"];
 }
 $limiter = floor($page*5)-5;
-if(isset($_GET["id"])) {
-    $list = $sql->get("SELECT * FROM posts WHERE id = ".$_GET["id"]);
-} else {
-    $list = $sql->get("SELECT * FROM posts ORDER BY datum DESC LIMIT {$limiter}, 5");
-}
-foreach ($list as $row) {
-    $date = date("y-m-d H:i", strtotime($row["datum"]));
+$list = $sql->get("SELECT * FROM posts ORDER BY datum DESC LIMIT {$limiter}, 5");
+foreach ($list as $row) { // gör så att allt i listan skrivs ut i rader
+    $date = date("y-m-d H:i", strtotime($row["datum"])); // skriver ut datum när inlägget blev upplagt
     echo <<<OUT
                 <h3>
                     {$row["title"]}
@@ -167,7 +163,7 @@ foreach ($list as $row) {
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Postad {$date}</p>
 OUT;
-    if($row["img"] != "") {
+    if($row["img"] != "") { // om ingen bild finns så vissas ingen bild 
         echo <<<OUT
 <img class="img-responsive" src="{$row["img"]}" alt="bild">
 OUT;
@@ -177,7 +173,7 @@ OUT;
                 <p>{$row["post"]}</p>
 
 OUT;
-    if (isset($_SESSION["user"])) {
+    if (isset($_SESSION["user"])) { // gör så att om du är inloggad så sysn knappen för att ta bort inlägg
         echo <<<OUT
                 <a href="delete.php?id={$row["id"]}"><button type="button">Ta bort inlägg</button></a>
 
@@ -197,7 +193,7 @@ OUT;
 
               <ul class="pager">
 <?php
-$count = $sql->get("SELECT COUNT(*) AS c FROM posts");
+$count = $sql->get("SELECT COUNT(*) AS c FROM posts"); // räknar ut antalet sidor vi har 
 $antal = $count[0]["c"]/5;
 $lastpage = ceil($antal);
                 if($page > 1) {
@@ -264,8 +260,8 @@ $lastpage = ceil($antal);
                     </section>
                 </div>
 <?php
-if(isset($_SESSION["user"])) {
-$sql = new sql();
+if(isset($_SESSION["user"])) { // om du är inloggad kan du klicka på en knapp för att se en lista med alla emails som finns i maillistan 
+$sql = new sql(); // skapar ett nytt objekt som gör att vi kan använda sql
 $list = $sql->get("SELECT email FROM maillista");
 ?>
                 <div class="well">
@@ -293,7 +289,7 @@ $list = $sql->get("SELECT email FROM maillista");
                     <p>Copyright &copy; Your Website 2017</p>
                     <!-- Login and logout link -->
                     <?php
-                    if(isset($_SESSION["user"])) {
+                    if(isset($_SESSION["user"])) { // gör att knappen för att logga in sysn när man är utloggad och att knappen för att logga ut syns när man är inloggad
                     ?>
                     <a href="login_script.php?a=logout">Sign out</a>
                     <?php
