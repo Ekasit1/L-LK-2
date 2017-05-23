@@ -43,7 +43,7 @@ if(isset($_POST["title"])) { // gör så att man kan lägga upp en bild om man h
             header("Location: index.php?msg=6");
             break;
         }
-    } else { // gör att om vi inte har laggt uppe n bild så läggs inlägget upp utan bild
+    } else { // gör att om vi inte har laggt upp en bild så läggs inlägget upp utan bild
         require("sql.php");
         $sql = new sql(); // skapar ett nytt objekt som gör att vi kan använda sql
         $ok = $sql->set("INSERT INTO posts (title, post) VALUES (\"".$_POST["title"]."\", \"".$_POST["message"]."\");");

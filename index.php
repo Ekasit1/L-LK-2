@@ -35,7 +35,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php
-if(isset($_GET["msg"])) { // om ett meddelande att visa så kommer det att välja ett från listan
+if(isset($_GET["msg"])) { // om ett meddelande ska visas så kommer det att välja ett från listan nedan
     $msglist = [
         "Det funkade",
         "Du får nu vårt nyhetsbrev",
@@ -45,7 +45,7 @@ if(isset($_GET["msg"])) { // om ett meddelande att visa så kommer det att välj
         "Otillåten filtyp. filen måste vara JPG, JPEG, PNG eller GIF",
         "file is to big"
     ];
-    $onclickcode = "document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'"; // rad 48-50 gör så att om det kommer upp ett felmeddelande som har med inlägget att göra så tar det dig tillbaka till modal en med inlägg. Om det är en annat typ av meddelande så tar det dig inte tillbaka till modalen.
+    $onclickcode = "document.getElementById('m2').style.display = 'none';document.getElementById('m1').style.display = 'block'"; // rad 48-50 gör så att om det kommer upp ett felmeddelande som har med inlägget att göra så tar det dig tillbaka till modal en med inlägg. Om det är en annan typ av meddelande så tar det dig inte tillbaka till modalen.
     if($_GET["msg"] < 5) {
         $onclickcode = "document.getElementById('m2').style.display = 'none';";
     }
@@ -163,7 +163,7 @@ foreach ($list as $row) { // gör så att allt i listan skrivs ut i rader
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Postad {$date}</p>
 OUT;
-    if($row["img"] != "") { // om ingen bild finns så vissas ingen bild 
+    if($row["img"] != "") { // om ingen bild finns så visas ingen bild 
         echo <<<OUT
 <img class="img-responsive" src="{$row["img"]}" alt="bild">
 OUT;
@@ -289,7 +289,7 @@ $list = $sql->get("SELECT email FROM maillista");
                     <p>Copyright &copy; Your Website 2017</p>
                     <!-- Login and logout link -->
                     <?php
-                    if(isset($_SESSION["user"])) { // gör att knappen för att logga in sysn när man är utloggad och att knappen för att logga ut syns när man är inloggad
+                    if(isset($_SESSION["user"])) { // gör att knappen för att logga in syns när man är utloggad och att knappen för att logga ut syns när man är inloggad
                     ?>
                     <a href="login_script.php?a=logout">Sign out</a>
                     <?php
